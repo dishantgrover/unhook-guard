@@ -40,12 +40,33 @@ Parts:
 - The worker rejects completion before the countdown plus breathing time has passed, so the page cannot be skipped by calling the worker directly.
 - Settings protection: changes that make the guard stricter apply at once. Changes that weaken it (higher limit, longer unlock, shorter countdown, and so on) wait 24 hours and can be cancelled. The 24 h delay itself is not configurable. Clearing history is allowed but counted in the stats.
 
-## Install in Arc
+## Install
 
-1. Open `arc://extensions`.
-2. Turn on Developer mode.
-3. Click Load unpacked and choose the `unhook-guard` folder.
-4. Confirm the card shows no errors. Open `https://www.youtube.com/`.
+Works in Chromium-based desktop browsers (Arc, Chrome, Edge, Brave). It is not on the Chrome Web Store, so you load it as an unpacked extension. It does not sync between devices, so repeat these steps on each one.
+
+1. Get the code:
+   ```
+   git clone https://github.com/dishantgrover/unhook-guard.git
+   ```
+   Or use "Code > Download ZIP" on GitHub and unzip it. Keep the folder somewhere permanent, because the browser loads the extension from it.
+2. Open the extensions page: `arc://extensions`, `chrome://extensions`, `edge://extensions` or `brave://extensions`.
+3. Turn on Developer mode (toggle at the top right in Chrome, Edge and Brave).
+4. Click Load unpacked and choose the `unhook-guard` folder (the one containing `manifest.json`).
+5. Confirm the Unhook Guard card shows no errors. Pin it from the puzzle-piece menu if you want the toolbar icon.
+6. Reload any YouTube tabs that were already open. Extensions are not added to tabs that were open before install.
+7. Recommended: on the extension's Details page, turn on "Allow in Incognito" (or the private-window option), otherwise a private window bypasses it.
+8. Optional: in Unhook's popup, turn off "Hide Home Feed", so the feed shows during an unlock.
+
+### Update
+
+```
+git pull
+```
+Then click the reload icon on the Unhook Guard card in the extensions page.
+
+### Phones and other browsers
+
+Chrome on Android and iOS cannot run extensions. Firefox and Safari need a ported manifest and are not supported yet.
 
 Recommended: in `arc://extensions` > Unhook Guard > Details, turn on "Allow in Incognito" (and Arc's equivalent for private windows), otherwise a private window bypasses it.
 
