@@ -10,9 +10,9 @@ A small Manifest V3 companion to the Unhook extension. It adds friction (ScreenZ
 
 It is friction against impulse, not a lock. You can always disable or remove it in `arc://extensions`. See "Known limitations".
 
-## What Unhook does (summary, see FINDINGS.md)
+## What Unhook does
 
-Inspected read-only in `.../Arc/User Data/Profile 1/Extensions/khncfooichmfjbepaaaebmommgaepoid/1.6.9_0/` (the path in the original request had no `extensions` folder; the real one is under `Profile 1`, capital `E`).
+Unhook is a browser extension that removes distracting parts of YouTube, such as the home feed, Shorts, recommended videos and end-screen suggestions. See FINDINGS.md for more detail.
 
 - Settings live in `chrome.storage.sync` under keys such as `yt_on` (main switch), `hide_feed`, `hide_shorts`, `hide_recommended`, `hide_endscreen`.
 - Its content script copies each `hide_*` value onto `<html>` as an attribute; static CSS keyed on those attributes hides elements. When `yt_on` turns false it removes the attributes.
