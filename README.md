@@ -1,5 +1,11 @@
 # Unhook Guard
 
+## Why this exists
+
+I built this to add more friction to my own YouTube addiction. Unhook hides the feed, but bringing it back is one tap, and I kept doing that out of habit. This extension puts a deliberate pause in front of the feed, so I open YouTube when I have something specific to watch and not because the algorithm is leading me. It is a personal tool shared as is, and it is not affiliated with Unhook.
+
+## What it is
+
 A small Manifest V3 companion to the Unhook extension. It adds friction (ScreenZen style) before the YouTube feed can be shown, so YouTube is used when you have something specific to watch.
 
 It is friction against impulse, not a lock. You can always disable or remove it in `arc://extensions`. See "Known limitations".
