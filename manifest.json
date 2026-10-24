@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Unhook Guard",
+  "version": "1.0.0",
+  "minimum_chrome_version": "110",
+  "description": "Adds deliberate friction before the YouTube feed can be shown. Companion to Unhook.",
+  "permissions": ["storage", "alarms"],
+  "background": { "service_worker": "background/service-worker.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["lib/guard-logic.js", "content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "action": { "default_popup": "popup/popup.html", "default_title": "Unhook Guard" },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

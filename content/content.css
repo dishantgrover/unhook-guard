@@ -1,0 +1,56 @@
+/*
+ * Unhook Guard: fail-closed hiding on youtube.com.
+ * content.js sets these attributes on <html>:
+ *   ug-state  = "locked" | "unlocked"   (absent until storage is read; absent is treated as locked)
+ *   ug-route  = "block" | "ok"          (block: the current page is a gated feed or Shorts page)
+ *   ug-shorts = "block" | "ok"          (block: hide Shorts entry points everywhere)
+ * Selectors are modelled on the ones Unhook 1.6.9 used. YouTube changes its DOM often.
+ * Last reviewed against Unhook 1.6.9 selectors; not re-checked against live YouTube in this build.
+ * Each selector has its own rule so one unsupported selector cannot invalidate a list.
+ */
+
+/* ---- Route-level: hide the whole page area on a blocked route ---- */
+html[ug-route="block"]:not([ug-state="unlocked"]) ytd-page-manager { display: none !important; }
+html[ug-route="block"]:not([ug-state="unlocked"]) ytm-browse { display: none !important; }
+html[ug-route="block"]:not([ug-state="unlocked"]) ytm-shorts-lockup-view-model-v2 { display: none !important; }
+/* Shorts route stays blocked even while unlocked (shortsWithUnlock = false): content.js keeps ug-route="block" and ug-shorts="block". */
+html[ug-route="block"][ug-shorts="block"] ytd-page-manager { display: none !important; }
+html[ug-route="block"][ug-shorts="block"] ytm-shorts-player { display: none !important; }
+
+/* ---- Before the route is known: keep the home grid hidden unless explicitly ok ---- */
+html:not([ug-route="ok"]):not([ug-state="unlocked"]) ytd-browse[page-subtype="home"] { display: none !important; }
+html:not([ug-route="ok"]):not([ug-state="unlocked"]) ytd-rich-grid-renderer { display: none !important; }
+
+/* ---- Component-level, hidden whenever locked ---- */
+html:not([ug-state="unlocked"]) #secondary.ytd-watch-flexy { display: none !important; }
+html:not([ug-state="unlocked"]) ytd-watch-next-secondary-results-renderer { display: none !important; }
+html:not([ug-state="unlocked"]) ytd-watch-flexy #related { display: none !important; }
+html:not([ug-state="unlocked"]) ytd-watch-grid #secondary { display: none !important; }
+html:not([ug-state="unlocked"]) ytm-item-section-renderer[section-identifier="related-items"] { display: none !important; }
+
+html:not([ug-state="unlocked"]) .html5-endscreen { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-endscreen-content { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-ce-element { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-fullscreen-grid { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-pause-overlay { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-videowall-still { display: none !important; }
+html:not([ug-state="unlocked"]) .ytp-mweb-endscreen-play-next { display: none !important; }
+
+/* Search-result shelves (horizontal shelves of suggestions) while locked */
+html:not([ug-state="unlocked"]) ytd-horizontal-card-list-renderer { display: none !important; }
+html:not([ug-state="unlocked"]) ytd-search ytd-shelf-renderer { display: none !important; }
+
+/* ---- Shorts entry points everywhere while ug-shorts="block" ---- */
+html[ug-shorts="block"] ytd-reel-shelf-renderer { display: none !important; }
+html[ug-shorts="block"] ytd-rich-shelf-renderer[is-shorts] { display: none !important; }
+html[ug-shorts="block"] ytd-rich-section-renderer:has(ytd-reel-shelf-renderer) { display: none !important; }
+html[ug-shorts="block"] grid-shelf-view-model { display: none !important; }
+html[ug-shorts="block"] ytd-video-renderer:has(a[href*="/shorts/"]) { display: none !important; }
+html[ug-shorts="block"] ytd-compact-video-renderer:has(a[href*="/shorts/"]) { display: none !important; }
+html[ug-shorts="block"] ytd-rich-item-renderer:has(a[href*="/shorts/"]) { display: none !important; }
+html[ug-shorts="block"] yt-chip-cloud-chip-renderer:has(yt-formatted-string[title="Shorts"]) { display: none !important; }
+html[ug-shorts="block"] ytd-guide-entry-renderer:has(a[title="Shorts"]) { display: none !important; }
+html[ug-shorts="block"] ytd-mini-guide-entry-renderer[aria-label="Shorts"] { display: none !important; }
+html[ug-shorts="block"] a.yt-simple-endpoint[title="Shorts"] { display: none !important; }
+html[ug-shorts="block"] ytm-reel-shelf-renderer { display: none !important; }
+html[ug-shorts="block"] ytm-pivot-bar-item-renderer:has(.pivot-shorts) { display: none !important; }

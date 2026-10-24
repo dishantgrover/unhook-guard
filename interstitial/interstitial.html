@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unhook Guard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="interstitial.css">
+</head>
+<body>
+  <main>
+    <section id="step-loading" data-step="loading">
+      <p>Loading...</p>
+    </section>
+
+    <section id="step-status" data-step="status" hidden>
+      <h1>Before you open the feed</h1>
+      <p id="status-text"></p>
+      <p class="muted">The feed is for when you have something specific in mind. Searching for it never needs an unlock.</p>
+      <div class="row">
+        <button id="status-continue" class="primary" type="button">Continue</button>
+        <button class="cancel" type="button" data-action="cancel">Never mind, take me to search</button>
+      </div>
+    </section>
+
+    <section id="step-limit" data-step="limit" hidden>
+      <h1>No unlocks left today</h1>
+      <p id="limit-text"></p>
+      <form id="limit-search" class="search">
+        <input id="limit-query" type="text" placeholder="Search YouTube for something specific" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+    </section>
+
+    <section id="step-already" data-step="already" hidden>
+      <h1>The feed is already unlocked</h1>
+      <p id="already-text"></p>
+      <button id="already-go" class="primary" type="button">Go to YouTube</button>
+    </section>
+
+    <section id="step-intent" data-step="intent" hidden>
+      <h1>What are you here to watch?</h1>
+      <p class="muted">Type the exact title or topic. Be specific.</p>
+      <textarea id="intent" rows="3" maxlength="300" placeholder="e.g. the lecture on how transformers work"></textarea>
+      <p id="intent-msg" class="msg" aria-live="polite"></p>
+      <div class="row">
+        <button id="intent-continue" class="primary" type="button" disabled>Continue</button>
+        <button class="cancel" type="button" data-action="cancel">Never mind</button>
+      </div>
+    </section>
+
+    <section id="step-countdown" data-step="countdown" hidden>
+      <h1>Wait</h1>
+      <p class="muted">This cannot be skipped. The timer pauses while this tab is in the background.</p>
+      <div id="countdown-num" class="big">0</div>
+      <p id="countdown-note" class="muted"></p>
+      <button class="cancel big-btn" type="button" data-action="cancel">Never mind</button>
+    </section>
+
+    <section id="step-breathing" data-step="breathing" hidden>
+      <h1 id="breath-label">Breathe in</h1>
+      <div id="breath-circle" class="circle"></div>
+      <p id="breath-note" class="muted"></p>
+      <button class="cancel big-btn" type="button" data-action="cancel">Never mind</button>
+    </section>
+
+    <section id="step-confirm1" data-step="confirm1" hidden>
+      <h1>Is this on your list?</h1>
+      <blockquote id="confirm1-intent"></blockquote>
+      <div class="row">
+        <button id="confirm1-yes" class="primary" type="button">Yes, this is on my list</button>
+        <button class="cancel" type="button" data-action="cancel">No, close this</button>
+      </div>
+    </section>
+
+    <section id="step-confirm2" data-step="confirm2" hidden>
+      <h1>Final check</h1>
+      <p id="confirm2-text"></p>
+      <div class="row">
+        <button id="confirm2-cancel" class="cancel big-btn" type="button" data-action="cancel">Never mind</button>
+        <button id="confirm2-go" class="quiet" type="button">Open the feed</button>
+      </div>
+    </section>
+
+    <section id="step-error" data-step="error" hidden>
+      <h1>That did not work</h1>
+      <p id="error-text"></p>
+      <div class="row">
+        <button id="error-restart" class="primary" type="button">Start again</button>
+        <button class="cancel" type="button" data-action="cancel">Take me to search</button>
+      </div>
+    </section>
+  </main>
+  <script src="../lib/guard-logic.js"></script>
+  <script src="interstitial.js"></script>
+</body>
+</html>

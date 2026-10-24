@@ -1,0 +1,150 @@
+{
+  "browser": "Chrome/156.0.8078.4",
+  "results": [
+    {
+      "name": "extension loaded (service worker target found)",
+      "pass": true,
+      "detail": "mndnfmiehffkkibinnedhlfgildpcjcg"
+    },
+    {
+      "name": "options page renders settings and 3 default unlocks",
+      "pass": true,
+      "detail": "Unhook Guard |  | Changes that make the guard stricter apply immediately. Changes that make it weaker take effect after 24 h"
+    },
+    {
+      "name": "home route: ug-route=block, ug-state=locked",
+      "pass": true,
+      "detail": "{\"s\":\"locked\",\"r\":\"block\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "home route: feed container hidden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "home route: overlay present in closed shadow root",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "watch route not blocked",
+      "pass": true,
+      "detail": "{\"s\":\"locked\",\"r\":\"ok\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "watch page: related column hidden while locked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "watch page: player visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "search route not blocked, shorts shelf hidden",
+      "pass": true,
+      "detail": "{\"s\":\"locked\",\"r\":\"ok\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "shorts route blocked",
+      "pass": true,
+      "detail": "{\"s\":\"locked\",\"r\":\"block\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "interstitial starts at status step",
+      "pass": true,
+      "detail": "status"
+    },
+    {
+      "name": "intent step shown, continue disabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "short intent keeps continue disabled",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "valid intent enables continue",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "countdown step shown after intent",
+      "pass": true,
+      "detail": "countdown"
+    },
+    {
+      "name": "worker refuses early completion",
+      "pass": true,
+      "detail": "{\"ok\":false,\"reason\":\"too-early\"}"
+    },
+    {
+      "name": "breathing step reached after countdown",
+      "pass": true,
+      "detail": "breathing"
+    },
+    {
+      "name": "confirm 1 reached after breathing",
+      "pass": true,
+      "detail": "confirm1"
+    },
+    {
+      "name": "confirm 2 shown",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "unlock recorded (unlocksUsed=1, unlockedUntil in future)",
+      "pass": true,
+      "detail": "{\"u\":1,\"rem\":598}"
+    },
+    {
+      "name": "intent logged with text",
+      "pass": true,
+      "detail": "[\"watch\",\"unlock\"]"
+    },
+    {
+      "name": "open home tab updates live to unlocked / route ok",
+      "pass": true,
+      "detail": "{\"s\":\"unlocked\",\"r\":\"ok\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "feed container visible while unlocked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "still unlocked 0.5 s before expiry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "auto re-lock in the open tab after expiry",
+      "pass": true,
+      "detail": "{\"s\":\"locked\",\"r\":\"block\",\"sh\":\"block\"}"
+    },
+    {
+      "name": "overlay back after re-lock",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weakening queued, strengthening applied",
+      "pass": true,
+      "detail": "{\"ok\":true,\"queued\":[\"dailyUnlockLimit\"],\"appliedNow\":[\"unlockMinutes\"],\"rejected\":[]}"
+    },
+    {
+      "name": "pending entry is ~24h out and limit unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "page cannot message the worker (no externally_connectable)",
+      "pass": true,
+      "detail": "error:Cannot read properties of undefined (reading 'sendMessage')"
+    }
+  ]
+}

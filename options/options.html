@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unhook Guard settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Unhook Guard</h1>
+    <p class="muted">Changes that make the guard stricter apply immediately. Changes that make it weaker take effect after 24 hours, and you can cancel them while they wait.</p>
+
+    <section>
+      <h2>Today</h2>
+      <p id="today"></p>
+    </section>
+
+    <section>
+      <h2>Settings</h2>
+      <form id="settings-form"></form>
+      <p id="save-msg" class="msg" aria-live="polite"></p>
+      <button id="save" type="button" class="primary">Save changes</button>
+    </section>
+
+    <section>
+      <h2>Waiting changes</h2>
+      <ul id="pending"></ul>
+      <p id="pending-empty" class="muted">None.</p>
+    </section>
+
+    <section>
+      <h2>Stats</h2>
+      <p id="stats"></p>
+    </section>
+
+    <section>
+      <h2>History</h2>
+      <p class="muted">Stored only in this browser. Newest first.</p>
+      <table id="history"><thead><tr><th>Time</th><th>Type</th><th>Detail</th></tr></thead><tbody></tbody></table>
+      <button id="clear" type="button">Clear history</button>
+      <p class="muted">Clearing is counted in the stats so a lapse cannot be hidden silently.</p>
+    </section>
+
+    <section>
+      <h2>Limits of this tool</h2>
+      <p class="muted">You can always disable or remove this extension in arc://extensions. It adds friction against impulse. It is not a lock.</p>
+    </section>
+  </main>
+  <script src="../lib/guard-logic.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

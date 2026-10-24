@@ -1,0 +1,9 @@
+{
+  "name": "unhook-guard",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "TZ=UTC node --test test/*.test.js",
+    "check": "node scripts/check.js"
+  }
+}
